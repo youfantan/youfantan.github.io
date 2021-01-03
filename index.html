@@ -12,6 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <title>shandiankulishe的茶馆</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/0.100.0/css/materialize.css">
 <link rel="stylesheet" type="text/css" href="css/globe.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -51,11 +52,13 @@
                 <li class="tab col s2"><a id="zhihuans">知乎回答存档</a></li>
                 <li class="tab col s2"><a id="documents">文章存档</a></li>
                 <li class="tab col s2"><a id="tools">实用工具</a></li>
+                <li class="tab col s2"><a id="project">Projects</a></li>
                 <li class="tab col s3"><a id="gh-repository">Github Repositories</a></li>
               </ul>
         </div>
     </div>
-    <canvas id="live2d" width="280" height="326"></canvas>
+    <iframe id="player" frameborder="no" border="0" marginwidth="0" marginheight="0" width=800 height=86 src="https://music.163.com/outchain/player?type=2&id=437292121&auto=1&height=66"></iframe>
+    <canvas id="live2d" class="tooltipped" data-position="top" data-delay="10" data-tooltip="香风智乃（罗马字：Kafuu Chino，官方简称チノ）是Koi所创作的漫画《请问您今天要来点兔子吗？》及其衍生作品的登场角色。智乃的名字源自于卡布奇诺（Cappuccino→Kafuu Chino）。" width="280" height="326"></canvas>
     <script src="js/live2d.js"></script>
     <script src="js/waifu-tips.js"></script>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.js"></script>
@@ -64,8 +67,29 @@
     var repository_num=0;
     var repository_names=[];
     var followers_num=0;
+    var random=0;
     $(document).ready(function () {
         loadlive2d("live2d", "chino/model.json");
+        $("#live2d").click(function(){
+            random=Math.floor(Math.random()*8);
+            if(random==0){
+                Materialize.toast('你在干什么啊！', 2000);
+            } else if(random==1){
+                Materialize.toast('别碰人家啦！', 2000);
+            } else if(random==2){
+                Materialize.toast('再碰人家，人家就报警了！！', 2000);
+            } else if(random==3){
+                Materialize.toast('', 2000);
+            } else if(random==4){
+                Materialize.toast('干嘛呢你，快把手拿开！',2000);
+            } else if(random==5){
+                Materialize.toast('鼠…鼠标放错地方了！',2000);
+            } else if(random==6){
+                Materialize.toast('110吗，这里有个变态一直在摸我(ó﹏ò｡)',2000)
+            } else if(random==7){
+                Materialize.toast('年轻人耗耗反思，耗子尾汁，不要再犯这样的小聪明，不要搞 窝里斗',2000)
+            }
+        })
     })
     function gh_inf(){
         var xhr=new XMLHttpRequest();

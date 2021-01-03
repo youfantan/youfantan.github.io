@@ -2,6 +2,8 @@ html{
     background-image: url('../img/bg-civvi.jpg');
     background-attachment: fixed;
     background-size: 101%;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 微软雅黑;
 }
 .links{
@@ -34,5 +36,11 @@ html{
 }
 #live2d{
     position: absolute;
+    left: 2%; 
     top: 60%;
+}
+#player{
+    position: absolute;
+    top: 87%;
+    left: 30%;
 }
