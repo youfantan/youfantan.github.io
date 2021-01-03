@@ -4,7 +4,11 @@ html{
     background-size: 101%;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 微软雅黑;
+    font-family: NotoSans-R;
+}
+@font-face{
+    font-family: NotoSans-R;
+    src: url('/font/NotoSansCJK-Regular-1.otf');
 }
 .links{
     width: 400px;
