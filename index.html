@@ -10,13 +10,12 @@
 
   gtag('config', 'G-05FZ2QB8JB');
 </script>
-</script>
-    <meta charset="UTF-8">
-    <title>shandiankulishe的茶馆</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/0.100.0/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="css/globe.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="shortcut icon" type="image/x-icon" href="img/shandiankulishe-icon.png">
+<meta charset="UTF-8">
+<title>shandiankulishe的茶馆</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/0.100.0/css/materialize.css">
+<link rel="stylesheet" type="text/css" href="css/globe.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="shortcut icon" type="image/x-icon" href="img/shandiankulishe-icon.png">
 </head>
 <body>
     <div class="row">
@@ -39,8 +38,8 @@
                   </div>
                   <div class="card-reveal">
                       <div class="collection">
-                        <a href="https://pages.github.com/" class="collection-item waves-effect grey darken-3 tooltipped" data-position="right" data-delay="10" data-tooltip="View Githuub Pages" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span id="thanks">Server by Github Pages</a>
-                        <a href="https://www.cloudflare.com/" class="collection-item waves-effect grey darken-3 tooltipped" data-position="right" data-delay="10" data-tooltip="View Cloudflare" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span>CDN&DDoS Protection by Cloudflare</a>
+                        <a href="https://pages.github.com/" target="_Blank" class="collection-item waves-effect grey darken-3 tooltipped" data-position="right" data-delay="10" data-tooltip="View Githuub Pages" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span id="thanks">Server by Github Pages</a>
+                        <a href="https://www.vercel.com/" target="_Blank" class="collection-item waves-effect grey darken-3 tooltipped" data-position="right" data-delay="10" data-tooltip="View Cloudflare" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span>CDN by Vercel</a>
                     </div>
                   </div>
                   <div class="col s12 m9" id="content">
@@ -56,6 +55,9 @@
               </ul>
         </div>
     </div>
+    <canvas id="live2d" width="280" height="326"></canvas>
+    <script src="js/live2d.js"></script>
+    <script src="js/waifu-tips.js"></script>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.js"></script>
     <script type="text/javascript" src="https://cdn.staticfile.org/materialize/0.100.0/js/materialize.js"></script>
     <script type="text/javascript">
@@ -63,6 +65,7 @@
     var repository_names=[];
     var followers_num=0;
     $(document).ready(function () {
+        loadlive2d("live2d", "chino/model.json");
     })
     function gh_inf(){
         var xhr=new XMLHttpRequest();
