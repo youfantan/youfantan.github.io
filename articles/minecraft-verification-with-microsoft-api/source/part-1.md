@@ -8,7 +8,9 @@
 [wiki.vg(汉化后)](https://wiki.vg/ZH:Microsoft_Authentication_Scheme)  
 [MiniLauncher(部分源码)](https://github.com/MiniDigger/MiniLauncher/blob/master/launcher/src/main/java/me/minidigger/minecraftlauncher/launcher/gui/MsaFragmentController.java)  
 [HMCL(部分源码)](https://github.com/huanghongxun/HMCL/blob/javafx/HMCL/src/main/java/org/jackhuang/hmcl/ui/account/MicrosoftAccountLoginStage.java)  
-[node-minecraft-protocol](https://github.com/PrismarineJS/node-minecraft-protocol/blob/master/src/client/microsoftAuth.js)
+[node-minecraft-protocol](https://github.com/PrismarineJS/node-minecraft-protocol/blob/master/src/client/microsoftAuth.js)  
+[XcubeLauncher(部分源码)](https://github.com/Xcube-Studio/Minecraft-For-ms-Login)
+
 
 ## 正文
 
