@@ -14,8 +14,7 @@
 <title>shandiankulishe的茶馆</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/0.100.0/css/materialize.css">
-<link rel="stylesheet" type="text/css" href="css/globe.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="shortcut icon" type="image/x-icon" href="img/shandiankulishe-icon.png">
 </head>
@@ -50,109 +49,77 @@
             <ul class="tabs grey darken-2" id="tabs">
                 <li class="tab col s2"><a id="zhihuans">知乎回答存档</a></li>
                 <li class="tab col s2"><a id="documents">文章存档</a></li>
-                <li class="tab col s2"><a id="tools">实用工具</a></li>
                 <li class="tab col s2"><a id="project">Projects</a></li>
                 <li class="tab col s3"><a id="gh-repositories">Github Repositories</a></li>
               </ul>
         </div>
         <div class="col s12 m8">
             <div class="card white black-text" id="content">
-                <div class="card brown lighten-4">
-                    <div class="card-content">
-                        <div class="card-title">
-                            我的世界末影龙怎么打？
-                        </div>
-                        <p><a href="http://tool.mkblog.cn/lmbtfy/?q=TWluZWNyYWZ05oCO5LmI5omT5pyr5b2x6b6Z" class="link">Let Me Baidu For you</a></p>
-                        <p><a href="https://search.bilibili.com/all?keyword=%E6%9C%AB%E5%BD%B1%E9%BE%99%E6%80%8E%E4%B9%88%E6%89%93&from_source=nav_search_new" class="link">B站</a></p>
-                        <p>......</p>
-                    </div>
-                    <div class="card-action">
-                        <a class="btn grey darken-2 waves-effect" href="https://www.zhihu.com/question/436345534/answer/1645481463" target="_Blank">去知乎阅读全文</a>
-                    </div>
-                </div>
-                <div class="card orange lighten-2">
-                    <div class="card-content">
-                        <div class="card-title">
-                            为什么25岁个人资产接近3000W，年收入70W，幸福感几乎没有？
-                        </div>
-                        <p>凡尔赛带文豪</p>
-                    </div>
-                        <div class="card-action">
-                            <a class="btn grey darken-2 waves-effect" href="https://www.zhihu.com/question/418319113/answer/1613165986" target="_Blank">去知乎阅读全文</a>
-                        </div>
-                    </div>
-                <div class="card cyan lighten-2">
-                    <div class="card-content">
-                        <div class="card-title">
-                            为什么Minecraft不更新枪械？
-                        </div>
-                        <p>为什么Minecraft不更新核弹？</p>
-                        <p>为什么Minecraft不更新天堂？</p>
-                        <p>为什么Minecraft不按照我的意思更新</p>
-                    </div>
-                    <div class="card-action">
-                        <a class="btn grey darken-2 waves-effect" href="https://www.zhihu.com/question/427328957/answer/1542527807" target="_Blank">去知乎阅读全文</a>
-                    </div>
-                </div>
-                </div>
-                </div>
             </div>
         </div>
-    <iframe id="player" frameborder="no" border="0" marginwidth="0" marginheight="0" width=800 height=86 src="https://music.163.com/outchain/player?type=2&id=437292121&auto=1&height=66"></iframe>
+    </div>
+</div>
     <canvas id="live2d" class="tooltipped" data-position="top" data-delay="10" data-tooltip="香风智乃（罗马字：Kafuu Chino，官方简称チノ）是Koi所创作的漫画《请问您今天要来点兔子吗？》及其衍生作品的登场角色。智乃的名字源自于卡布奇诺（Cappuccino→Kafuu Chino）。" width="280" height="326"></canvas>
     <script src="js/live2d.js"></script>
-    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.js"></script>
-    <script type="text/javascript" src="https://cdn.staticfile.org/materialize/0.100.0/js/materialize.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
     var repository_num=0;
     var repository_names=[];
     var followers_num=0;
     var random=0;
+    var ifgot=false;
+    var origincontent;
     var content=document.getElementById('content')
     $(document).ready(function () {
+        $("#sel").formSelect();
+        $('.tabs').tabs();
+        $('.tooltipped').tooltip();
+        $("#content").load("/html/ZhihuAnswerArchive.html")
         loadlive2d("live2d", "chino/model.json");
         $("#live2d").click(function(){
             random=Math.floor(Math.random()*8);
             if(random==0){
-                Materialize.toast('你在干什么啊！', 2000);
+                M.toast({html:'你在干什么啊！'});
             } else if(random==1){
-                Materialize.toast('别碰人家啦！', 2000);
+                M.toast({html:'别碰人家啦！'});
             } else if(random==2){
-                Materialize.toast('再碰人家，人家就报警了！', 2000);
+                M.toast({html:'再碰人家，人家就报警了！'});
             } else if(random==3){
-                Materialize.toast('是…是不小心碰到了吧', 2000);
+                M.toast({html:'是…是不小心碰到了吧'});
             } else if(random==4){
-                Materialize.toast('干嘛呢你，快把手拿开！',2000);
+                M.toast({html:'干嘛呢你，快把手拿开！'});
             } else if(random==5){
-                Materialize.toast('鼠…鼠标放错地方了！',2000);
+                M.toast({html:'鼠…鼠标放错地方了！'});
             } else if(random==6){
-                Materialize.toast('110吗，这里有个变态一直在摸我(ó﹏ò｡)',2000)
+                M.toast({html:'110吗，这里有个变态一直在摸我(ó﹏ò｡)'})
             } else if(random==7){
-                Materialize.toast('年轻人耗耗反思，耗子尾汁，不要再犯这样的小聪明，不要搞 窝里斗',2000)
+                M.toast({html:'年轻人耗耗反思，耗子尾汁，不要再犯这样的小聪明，不要搞 窝里斗'})
             }
         })
         $('#zhihuans').click(function(){
-            content.innerHTML='                <div class="card brown lighten-4">                    <div class="card-content">                        <div class="card-title">                            我的世界末影龙怎么打？                        </div>                        <p><a href="http://tool.mkblog.cn/lmbtfy/?q=TWluZWNyYWZ05oCO5LmI5omT5pyr5b2x6b6Z" class="link">Let Me Baidu For you</a></p>                        <p><a href="https://search.bilibili.com/all?keyword=%E6%9C%AB%E5%BD%B1%E9%BE%99%E6%80%8E%E4%B9%88%E6%89%93&from_source=nav_search_new" class="link">B站</a></p>                        <p>......</p>                    </div>                    <div class="card-action">                        <a class="btn grey darken-2 waves-effect" href="https://www.zhihu.com/question/436345534/answer/1645481463" target="_Blank">去知乎阅读全文</a>                    </div>                </div>                <div class="card orange lighten-2">                    <div class="card-content">                        <div class="card-title">                            为什么25岁个人资产接近3000W，年收入70W，幸福感几乎没有？                        </div>                        <p>凡尔赛带文豪</p>                    </div>                        <div class="card-action">                            <a class="btn grey darken-2 waves-effect" href="https://www.zhihu.com/question/418319113/answer/1613165986" target="_Blank">去知乎阅读全文</a>                        </div>                    </div>                <div class="card cyan lighten-2">                    <div class="card-content">                        <div class="card-title">                            为什么Minecraft不更新枪械？                        </div>                        <p>为什么Minecraft不更新核弹？</p>                        <p>为什么Minecraft不更新天堂？</p>                        <p>为什么Minecraft不按照我的意思更新</p>                    </div>                    <div class="card-action">                        <a class="btn grey darken-2 waves-effect" href="https://www.zhihu.com/question/427328957/answer/1542527807" target="_Blank">去知乎阅读全文</a>                    </div>                </div>'
+            $("#content").load("/html/ZhihuAnswerArchive.html")
         })
         $('#documents').click(function(){
-            content.innerHTML='<p>正在准备内容...请等待下次更新</p>'
+            $("#content").load("/html/Articles.html")
         })
-        $('#tools').click(function(){
-            content.innerHTML='<p>正在准备内容...请等待下次更新</p>'
-        })
-        $('#projects').click(function(){
-            content.innerHTML='<p>正在准备内容...请等待下次更新</p>'
+        $('#project').click(function(){
+            $("#content").load("/html/Projects.html")
         })
         $('#gh-repositories').click(function(){
-            content.innerHTML='<p>正在准备内容...请等待下次更新</p>'
+            if(ifgot==false){
+                $("#content").load("/html/Loading.html")
+                gh_inf();
+            } else{
+                content.innerHTML=origincontent;
+            }
         })
-
     })
     function gh_inf(){
         var xhr=new XMLHttpRequest();
         var response;
         xhr.open('GET','https://api.github.com/users/youfantan',true);
-        xhr.setRequestHeader('Authorization','token 5e1b9f7f0e5f00d94b5fda89e2328739979f2d8a')
+        xhr.setRequestHeader('Authorization','token 8dfd80e15207091460807f8ba39b87df96b9fa0c')
         xhr.send();
         xhr.onreadystatechange=function(){
             if(xhr.readyState==4 && xhr.status==200){
@@ -166,13 +133,21 @@
             repo_url_xhr.send();
             repo_url_xhr.onreadystatechange=function(){
                 if(repo_url_xhr.readyState==4&&repo_url_xhr.status==200){
+                content.innerHTML="";
                 repos=repo_url_xhr.responseText;
                 var repos_obj=JSON.parse(repos);
                 var repo_obj;
                 for(var i=0;i<repos_obj.length;i++){
                     repo_obj=repos_obj[i];
                     repository_names.push(repo_obj.name)
+                    console.log(repository_names)
                 }
+                content.innerHTML="";
+                for(var a=0;a<repository_names.length;a++){
+                        origincontent=content.innerHTML;
+                        content.innerHTML=origincontent+"<div class=\"card blue lighten-5\"><div class=\"card-content\"><div class=\"card-title\"youfantan/>"+repository_names[a]+"</div>"+"<img src=\"https://badgen.net/github/stars/youfantan/"+repository_names[a]+"\"/>"+"<img src=\"https://badgen.net/github/commits/youfantan/"+repository_names[a]+"\"/>"+"<img src=\"https://badgen.net/github/last-commit/youfantan/"+repository_names[a]+"\"/>"+"<img src=\"https://badgen.net/github/license/youfantan/"+repository_names[a]+"\"/>"+"</div><div class=\"card-action\"><a class=\"btn grey darken-2 waves-effect\" href=\"https://github.com/youfantan/"+repository_names[a]+"\">View In Github</a></div>"
+                }
+                ifgot=true;
             }
             }
         }

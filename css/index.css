@@ -35,12 +35,20 @@ html{
     color: #FFFFFF;
 }
 #live2d{
-    position: absolute;
+    position: fixed;
     left: 2%; 
     top: 60%;
+    bottom: 0;
 }
 #player{
     position: absolute;
     top: 87%;
     left: 30%;
+}
+#loading{
+    position: relative;
+    left:50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: 10px;
 }
