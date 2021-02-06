@@ -287,3 +287,6 @@ https://login.live.com/oauth20_authorize.srf
             System.out.println(new String(bytes));
         }
 ```
+
+至此，你已经完成了基本的操作，接下来将uhs token导入minecraft-service验证即可，本文不再赘述。  
+[示例源代码](https://github.com/youfantan/MSADemo)

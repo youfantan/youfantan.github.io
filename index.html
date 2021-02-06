@@ -14,7 +14,7 @@
 <title>shandiankulishe的茶馆</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="/css/materialize.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="shortcut icon" type="image/x-icon" href="img/shandiankulishe-icon.png">
 </head>
@@ -41,13 +41,13 @@
                       <div class="collection">
                         <a href="https://pages.github.com/" target="_Blank" class="collection-item waves-effect grey darken-2 tooltipped" data-position="right" data-delay="10" data-tooltip="View Githuub Pages" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span id="thanks">Server by Github Pages</a>
                         <a href="https://www.vercel.com/" target="_Blank" class="collection-item waves-effect grey darken-2 tooltipped" data-position="right" data-delay="10" data-tooltip="View Vercel" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span>CDN by Vercel</a>
+                        <a href="http://www.materializecss.com/" target="_Blank" class="collection-item waves-effect grey darken-2 tooltipped" data-position="right" data-delay="10" data-tooltip="View Vercel" style="color: #FFFFFF;"><span class="badge"><svg id="external" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></span>Powered by materialize.css</a>
                     </div>
                   </div>
             </div>
         </div>
         <div class="col s12 m8">
             <ul class="tabs grey darken-2" id="tabs">
-                <li class="tab col s2"><a id="zhihuans">知乎回答存档</a></li>
                 <li class="tab col s2"><a id="documents">文章存档</a></li>
                 <li class="tab col s2"><a id="project">Projects</a></li>
                 <li class="tab col s3"><a id="gh-repositories">Github Repositories</a></li>
@@ -97,9 +97,6 @@
                 M.toast({html:'年轻人耗耗反思，耗子尾汁，不要再犯这样的小聪明，不要搞 窝里斗'})
             }
         })
-        $('#zhihuans').click(function(){
-            $("#content").load("/html/ZhihuAnswerArchive.html")
-        })
         $('#documents').click(function(){
             $("#content").load("/html/Articles.html")
         })
@@ -125,6 +122,7 @@
             if(xhr.readyState==4 && xhr.status==200){
             response=xhr.responseText;
             var response_obj=JSON.parse(response);
+            console.log(response)
             var repo_url=response_obj.repos_url;
             followers_num=response_obj.followers;
             var repos;
