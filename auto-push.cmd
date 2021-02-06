@@ -1,3 +1,4 @@
+@echo off
 git add .
 set msg=
 set /p msg=type commit message:
